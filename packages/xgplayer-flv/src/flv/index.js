@@ -345,7 +345,7 @@ export class Flv extends EventEmitter {
       })
       this.emit(EVENT.LOAD_RESPONSE_HEADERS, { headers })
       this._acceptRanges =
-        !!headers?.get('Accept-Ranges') || !!headers?.get('Content-Range')
+        response.status === 206 || !!headers?.get('Accept-Ranges') || !!headers?.get('Content-Range')
       this._firstProgressEmit = true
     }
 
